@@ -143,7 +143,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -155,7 +155,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# 指定加载静态文件的路由前缀
 STATIC_URL = '/static/'
+# 配置静态文件加载路径
+STATICFILES_DIRS = [Path(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -189,7 +192,7 @@ LOGGING = {
         'file': {  # 向文件中输出日志
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': Path((BASE_DIR).parent, 'logs/meiduo.log'),  # 日志文件的位置
+            'filename': Path(BASE_DIR.parent, 'logs/meiduo.log'),  # 日志文件的位置
             'maxBytes': 100 * 1024 * 1024,
             'backupCount': 10,
             'formatter': 'verbose'
